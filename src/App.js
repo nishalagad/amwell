@@ -5,16 +5,22 @@ import LanguageChange from "./Components/ChangeLanguage/ChangeLanguage";
 import { React } from "react";
 import "./App.css";
 import Dashboard from "./Components/Dashboard/dashboard";
+import Chatbot from "./chatbot/chatbot";
+import Header from "./Headers/header";
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<LanguageChange />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </Router>
+    <>
+      <Header />
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<LanguageChange />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/chatbot" element={<Chatbot />} />
+        </Routes>
+      </Router>
+    </>
   );
 };
 
