@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from './App.css';
+import style from './chatbot.css';
 
 const API_KEY = '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'; // Replace 'YOUR_API_KEY' with your actual API key
 
