@@ -11,7 +11,7 @@ const API_KEY = "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"; // Replac
 const DATA_MESSAGE = [
   {
     type: "user",
-    text: "Hi There",
+    text: "Hello, this is Medly speaking. How can I help you today?",
   },
   {
     type: "bot",
@@ -51,7 +51,7 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([
     {
       type: "user",
-      text: "Hi There",
+      text: "Hello, this is Medly speaking. How can I help you today?",
       // isSelectType: true,
     },
   ]);
@@ -99,7 +99,11 @@ const Chatbot = () => {
       const updatedMessages = [
         ...conversation,
         { type: "bot", text: "I am not feeling well" },
-        { type: "user", text: "Do you want to connect to doctor" },
+        {
+          type: "user",
+          text: "I'm sorry to hear that. Please choose your preferred option.",
+          isSelectType: true,
+        },
       ];
       setMessages(updatedMessages);
     } else if (textInput.toLowerCase().includes("yes")) {
@@ -109,7 +113,7 @@ const Chatbot = () => {
         {
           type: "user",
           text: "Yes Please",
-          isSelectType: true,
+
           //isDoctor: true,
         },
       ];
@@ -170,7 +174,7 @@ const Chatbot = () => {
       ...conversation,
       {
         type: "bot",
-        text: "Appointment Booked",
+        text: `Your appointment has been successfully confirmed. Please visit the doctor at ${time}.`,
       },
     ];
     setMessages(updatedMessages);
@@ -178,7 +182,9 @@ const Chatbot = () => {
       doctorName,
       time,
     });
-    sendMessage({ message: "Your appointment has been booked" });
+    sendMessage({
+      message: `Your appointment has been successfully confirmed. Please visit the doctor at ${time}.`,
+    });
   };
 
   const selectType = () => {
@@ -191,7 +197,7 @@ const Chatbot = () => {
       },
       {
         type: "",
-        text: "",
+        text: "Depending on your condition, here is a list of nearby doctors.",
         isDoctor: true,
       },
     ];
@@ -285,25 +291,28 @@ const Chatbot = () => {
 
     if (isSelectType) {
       return (
-        <view
-          style={{ display: "flex", flexDirection: "row", paddingBottom: 12 }}
-        >
-          <Button
-            variant="outline-primary"
-            style={{ width: 120, marginRight: 10 }}
-            onClick={selectType}
+        <>
+          <p>{item?.text}</p>
+          <view
+            style={{ display: "flex", flexDirection: "row", paddingBottom: 12 }}
           >
-            Online video call
-          </Button>
-          {"  "}
-          <Button
-            variant="outline-primary"
-            style={{ width: 120 }}
-            onClick={selectType}
-          >
-            Visit your doctor
-          </Button>
-        </view>
+            <Button
+              variant="outline-primary"
+              style={{ width: 120, marginRight: 10 }}
+              onClick={selectType}
+            >
+              Online video call
+            </Button>
+            {"  "}
+            <Button
+              variant="outline-primary"
+              style={{ width: 120 }}
+              onClick={selectType}
+            >
+              Visit your doctor
+            </Button>
+          </view>
+        </>
       );
     }
 
