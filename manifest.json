@@ -1,0 +1,9 @@
+{
+  "name": "My Amazing PWA",
+  "short_name": "Amazing PWA",
+  "description": "An amazing PWA doing incredibly awesome things",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#3f51b5"
+}
