@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = () => {
     if (dummyData[phoneNumber] === otp) {
       setError("");
-      alert("Login successful");
+      alert("You have successfully logged in.");
       navigate("/dashboard");
     } else {
       setError("Invalid OTP");
@@ -29,10 +29,10 @@ const Login = () => {
 
   const handleSendOTP = () => {
     if (dummyData[phoneNumber]) {
-      alert(`OTP Sent to ${phoneNumber}`);
+      alert("otp sent successfully!");
       setShowOtp(true);
     } else {
-      setError("Invalid mobile number");
+      alert("Invalid mobile number");
     }
   };
 
