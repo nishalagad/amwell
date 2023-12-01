@@ -16,6 +16,9 @@ export default function Header() {
         justifyContent: "flex-start",
         padding: "8px",
         alignItems: "center",
+        position: "fixed",
+        backgroundColor: "white",
+        width: "100%",
       }}
     >
       <img src={logo} alt="logo" style={{ width: "150px" }} />

@@ -18,17 +18,23 @@ function DoctorCard() {
     <Row xs={1} md={2} className="g-4">
       {[Array.from({ length: 4 })].map((_, idx) => (
         <Col key={idx}>
-          <Card>
+          <Card style={{ marginRight: 10 }}>
             <Card.Img
               variant="top"
-              style={{ height: 150 }}
+              style={{ height: 80, width: 80 }}
               src="https://img.freepik.com/premium-vector/doctor-with-stethoscope-around-his-neck-is-standing-front-blue-background_596437-183.jpg"
             />
-            <Card.Body>
-              <Card.Title>Dr. John Deo</Card.Title>
-              <Card.Text>7 years of experience</Card.Text>
+            <Card.Body style={{ paddingLeft: 0, paddingRight: 0 }}>
+              <Card.Title style={{ fontSize: 14, fontWeight: "bold" }}>
+                Dr. John Deo
+              </Card.Title>
+              <Card.Text style={{ fontSize: 12 }}>
+                7 years of experience
+              </Card.Text>
             </Card.Body>
-            <Button variant="primary">Book Appointment</Button>
+            <Button variant="primary" style={{ fontSize: 12 }}>
+              Book Appointment
+            </Button>
           </Card>
         </Col>
       ))}
