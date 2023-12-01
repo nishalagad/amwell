@@ -18,10 +18,10 @@ function DoctorCard(props) {
     <Row xs={1} md={2} className="g-4">
       {[Array.from({ length: 4 })].map((_, idx) => (
         <Col key={idx}>
-          <Card style={{ marginRight: 10 }}>
+          <Card style={{ marginRight: 10, padding: 10 }}>
             <Card.Img
               variant="top"
-              style={{ height: 80, width: 80 }}
+              style={{ height: 80, width: 80, alignSelf: "center" }}
               src="https://img.freepik.com/premium-vector/doctor-with-stethoscope-around-his-neck-is-standing-front-blue-background_596437-183.jpg"
             />
             <Card.Body style={{ paddingLeft: 0, paddingRight: 0 }}>

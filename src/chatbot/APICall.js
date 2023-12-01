@@ -1,4 +1,5 @@
 export default function APICall(props) {
+  console.log("props", props);
   const apiUrl =
     "https://extentiaunternehmensberatunggmbh-a.my.salesforce.com/services/apexrest/myApiEndpoint/doPost";
 
@@ -11,7 +12,7 @@ export default function APICall(props) {
   const requestBody = {
     patientId: "1234",
     patientName: "Extentia Patient 01",
-    appointment_date: props.date, //"2023-12-01",
+    appointment_date: "2023-12-02",
     appointment_time: props.time, //"2PM to 3PM",
     doctor_name: props.doctorName,
     doctor_id: "6789",

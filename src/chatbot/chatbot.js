@@ -46,7 +46,8 @@ const DATA_MESSAGE = [
 ];
 const Chatbot = () => {
   const chatListRef = useRef(null);
-  const [info, setInfo] = useState();
+  const [doctorName, setDoctorName] = useState();
+  const [time, setTime] = useState();
   const [messages, setMessages] = useState([
     {
       type: "user",
@@ -144,10 +145,7 @@ const Chatbot = () => {
   };
 
   const selectDoctor = (docter) => {
-    this.setInfo({
-      ...info,
-      doctorName: docter,
-    });
+    setDoctorName(docter);
     const conversation = [...messages];
     const updatedMessages = [
       ...conversation,
@@ -164,7 +162,9 @@ const Chatbot = () => {
     setMessages(updatedMessages);
   };
 
-  const selectTime = () => {
+  const selectTime = (time) => {
+    console.log("props time", time);
+    setTime(time);
     const conversation = [...messages];
     const updatedMessages = [
       ...conversation,
@@ -174,7 +174,10 @@ const Chatbot = () => {
       },
     ];
     setMessages(updatedMessages);
-    APICall();
+    APICall({
+      doctorName,
+      time,
+    });
     sendMessage({ message: "Your appointment has been booked" });
   };
 
@@ -222,7 +225,11 @@ const Chatbot = () => {
         <view
           style={{ display: "flex", flexDirection: "row", paddingBottom: 12 }}
         >
-          <div onClick={() => selectDoctor("Jyoti Mali")}>
+          <div
+            onClick={() => {
+              selectDoctor("Jyoti Mali");
+            }}
+          >
             <DoctorCard
               imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
               name="Jyoti Mali" // Replace with the actual name
@@ -230,7 +237,11 @@ const Chatbot = () => {
             />
           </div>
 
-          <div onClick={() => selectDoctor("Akash Patil")}>
+          <div
+            onClick={() => {
+              selectDoctor("Akash Patil");
+            }}
+          >
             <DoctorCard
               imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
               name="Akash Patil" // Replace with the actual name
@@ -255,17 +266,17 @@ const Chatbot = () => {
             <Button
               variant="outline-primary"
               style={{ width: 120, marginRight: 10 }}
-              onClick={selectTime}
+              onClick={() => selectTime("02:00 PM")}
             >
-              10:00 AM
+              02:00 PM
             </Button>
             {"  "}
             <Button
               variant="outline-primary"
               style={{ width: 120 }}
-              onClick={selectTime}
+              onClick={() => selectTime("06:00 PM")}
             >
-              02:00 PM
+              06:00 PM
             </Button>{" "}
           </view>
         </view>
