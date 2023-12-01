@@ -3,10 +3,16 @@ import "./chatbot.css";
 import Header from "../Headers/header";
 import DoctorCard from "../doctor/doctor-card";
 import Button from "react-bootstrap/Button";
+import APICall from "./APICall";
 
 const API_KEY = "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"; // Replace 'YOUR_API_KEY' with your actual API key
 
 const DATA_MESSAGE = [
+  {
+    type: "user",
+    text: "Hi There",
+    isSelectType: true,
+  },
   {
     type: "user",
     text: "Hi There",
@@ -48,6 +54,7 @@ const Chatbot = () => {
     {
       type: "user",
       text: "Hi There",
+      // isSelectType: true,
     },
   ]);
   const [textInput, setTextInput] = useState("");
@@ -104,12 +111,14 @@ const Chatbot = () => {
         {
           type: "user",
           text: "Yes Please",
-          isDoctor: true,
+          isSelectType: true,
+          //isDoctor: true,
         },
       ];
       setMessages(updatedMessages);
     }
     setTextInput("");
+    scrollToBottom();
 
     return;
 
@@ -163,6 +172,24 @@ const Chatbot = () => {
         text: "Appointment Booked",
       },
     ];
+    APICall();
+    setMessages(updatedMessages);
+  };
+
+  const selectType = () => {
+    const conversation = [...messages];
+    const updatedMessages = [
+      ...conversation,
+      {
+        type: "bot",
+        text: "Online video call",
+      },
+      {
+        type: "",
+        text: "",
+        isDoctor: true,
+      },
+    ];
     setMessages(updatedMessages);
   };
 
@@ -186,6 +213,7 @@ const Chatbot = () => {
 
     const isDoctor = item?.isDoctor;
     const isTime = item?.isTime;
+    const isSelectType = item?.isSelectType;
 
     if (isDoctor) {
       return (
@@ -238,6 +266,30 @@ const Chatbot = () => {
               02:00 PM
             </Button>{" "}
           </view>
+        </view>
+      );
+    }
+
+    if (isSelectType) {
+      return (
+        <view
+          style={{ display: "flex", flexDirection: "row", paddingBottom: 12 }}
+        >
+          <Button
+            variant="outline-primary"
+            style={{ width: 120, marginRight: 10 }}
+            onClick={selectType}
+          >
+            Online video call
+          </Button>
+          {"  "}
+          <Button
+            variant="outline-primary"
+            style={{ width: 120 }}
+            onClick={selectType}
+          >
+            Visit your doctor
+          </Button>
         </view>
       );
     }
