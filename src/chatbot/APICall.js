@@ -13,7 +13,7 @@ export default function APICall() {
     patientName: "Extentia Patient 01",
     appointment_date: "2023-12-01",
     appointment_time: "2PM to 3PM",
-    doctor_name: "Dr Extentia Two",
+    doctor_name: "Dr Extentia Threeeee",
     doctor_id: "6789",
   };
   // Make the POST request
