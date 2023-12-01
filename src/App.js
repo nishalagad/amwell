@@ -4,15 +4,15 @@ import Login from "./Components/Login/Login";
 import LanguageChange from "./Components/ChangeLanguage/ChangeLanguage";
 import { React } from "react";
 import "./App.css";
+import Dashboard from "./Components/Dashboard/dashboard";
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} /> */}
         <Route path="/login" element={<Login />} />
-        <Route path="/change-language" element={<LanguageChange />} />
+        <Route path="/" element={<LanguageChange />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
