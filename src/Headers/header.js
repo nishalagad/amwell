@@ -13,12 +13,12 @@ export default function Header() {
     <header
       style={{
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         padding: "8px",
         alignItems: "center",
       }}
     >
-      <img src={logo} alt="logo" style={{ width: "150px" }} />{" "}
+      <img src={logo} alt="logo" style={{ width: "150px" }} />
       {/* replace with your logo */}
       {/*  <select onChange={handleLanguageChange} style={{ marginRight: "10px" }}>
         {languageOptions.map((language, index) => (
