@@ -94,14 +94,14 @@ const Chatbot = () => {
   const handleSend = async () => {
     const conversation = [...messages]; // Copying the existing conversation
 
-    if (textInput.toLowerCase().substring("not feeling")) {
+    if (textInput.toLowerCase().includes("not feeling")) {
       const updatedMessages = [
         ...conversation,
         { type: "bot", text: "I am not feeling well" },
         { type: "user", text: "Do you want to connect to doctor" },
       ];
       setMessages(updatedMessages);
-    } else if (textInput.toLowerCase().substring("yes")) {
+    } else if (textInput.toLowerCase().includes("yes")) {
       const updatedMessages = [
         ...conversation,
         { type: "bot", text: "Yes Please" },
