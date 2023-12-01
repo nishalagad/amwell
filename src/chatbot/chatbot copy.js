@@ -3,7 +3,6 @@ import "./chatbot.css";
 import Header from "../Headers/header";
 import DoctorCard from "../doctor/doctor-card";
 import Button from "react-bootstrap/Button";
-import APICall from "./APICall";
 
 const API_KEY = "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"; // Replace 'YOUR_API_KEY' with your actual API key
 
@@ -11,14 +10,8 @@ const DATA_MESSAGE = [
   {
     type: "user",
     text: "Hi There",
-    isSelectType: true,
   },
   {
-    type: "user",
-    text: "Hi There",
-  },
-  {
-    type: "bot",
     text: "I am not feeling well",
   },
   {
@@ -26,7 +19,6 @@ const DATA_MESSAGE = [
     text: "Do you want to connect to doctor",
   },
   {
-    type: "bot",
     text: "Yes Please",
   },
   {
@@ -35,7 +27,6 @@ const DATA_MESSAGE = [
     isDoctor: true,
   },
   {
-    type: "bot",
     text: "appointment with Dr. John Deo",
   },
   {
@@ -44,19 +35,12 @@ const DATA_MESSAGE = [
     isTime: true,
   },
   {
-    type: "bot",
     text: "Appointment Booked",
   },
 ];
 const Chatbot = () => {
   const chatListRef = useRef(null);
-  const [messages, setMessages] = useState([
-    {
-      type: "user",
-      text: "Hi There",
-      // isSelectType: true,
-    },
-  ]);
+  const [messages, setMessages] = useState([...DATA_MESSAGE]);
   const [textInput, setTextInput] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("English"); // Initial language choice
 
@@ -97,33 +81,6 @@ const Chatbot = () => {
   const handleSend = async () => {
     const conversation = [...messages]; // Copying the existing conversation
 
-    if (textInput === "I am not feeling well") {
-      const updatedMessages = [
-        ...conversation,
-        { type: "bot", text: "I am not feeling well" },
-        { type: "user", text: "Do you want to connect to doctor" },
-      ];
-      setMessages(updatedMessages);
-    } else if (textInput === "Yes Please") {
-      const updatedMessages = [
-        ...conversation,
-        { type: "bot", text: "Yes Please" },
-        {
-          type: "user",
-          text: "Yes Please",
-          isSelectType: true,
-          //isDoctor: true,
-        },
-      ];
-      setMessages(updatedMessages);
-    }
-    setTextInput("");
-    scrollToBottom();
-
-    return;
-
-    ///------------------------
-
     const userMessage = {
       type: "user",
       text: `Talk in ${selectedLanguage} ${textInput}`,
@@ -146,53 +103,6 @@ const Chatbot = () => {
     scrollToBottom();
   };
 
-  const selectDoctor = () => {
-    const conversation = [...messages];
-    const updatedMessages = [
-      ...conversation,
-      {
-        type: "bot",
-        text: "appointment with Dr. John Deo",
-      },
-      {
-        type: "user",
-        text: "",
-        isTime: true,
-      },
-    ];
-    setMessages(updatedMessages);
-  };
-
-  const selectTime = () => {
-    const conversation = [...messages];
-    const updatedMessages = [
-      ...conversation,
-      {
-        type: "bot",
-        text: "Appointment Booked",
-      },
-    ];
-    APICall();
-    setMessages(updatedMessages);
-  };
-
-  const selectType = () => {
-    const conversation = [...messages];
-    const updatedMessages = [
-      ...conversation,
-      {
-        type: "bot",
-        text: "Online video call",
-      },
-      {
-        type: "",
-        text: "",
-        isDoctor: true,
-      },
-    ];
-    setMessages(updatedMessages);
-  };
-
   const scrollToBottom = () => {
     chatListRef.current.scrollTo({
       top: chatListRef.current.scrollHeight,
@@ -213,28 +123,22 @@ const Chatbot = () => {
 
     const isDoctor = item?.isDoctor;
     const isTime = item?.isTime;
-    const isSelectType = item?.isSelectType;
 
     if (isDoctor) {
       return (
         <view
           style={{ display: "flex", flexDirection: "row", paddingBottom: 12 }}
         >
-          <div onClick={selectDoctor}>
-            <DoctorCard
-              imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
-              name="John Doe" // Replace with the actual name
-              experience="5 years of experience" // Replace with the actual experience
-            />
-          </div>
-
-          <div onClick={selectDoctor}>
-            <DoctorCard
-              imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
-              name="John Doe" // Replace with the actual name
-              experience="5 years of experience" // Replace with the actual experience
-            />
-          </div>
+          <DoctorCard
+            imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
+            name="John Doe" // Replace with the actual name
+            experience="5 years of experience" // Replace with the actual experience
+          />
+          <DoctorCard
+            imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
+            name="John Doe" // Replace with the actual name
+            experience="5 years of experience" // Replace with the actual experience
+          />
         </view>
       );
     }
@@ -253,43 +157,14 @@ const Chatbot = () => {
             <Button
               variant="outline-primary"
               style={{ width: 120, marginRight: 10 }}
-              onClick={selectTime}
             >
               10:00 AM
             </Button>
             {"  "}
-            <Button
-              variant="outline-primary"
-              style={{ width: 120 }}
-              onClick={selectTime}
-            >
+            <Button variant="outline-primary" style={{ width: 120 }}>
               02:00 PM
             </Button>{" "}
           </view>
-        </view>
-      );
-    }
-
-    if (isSelectType) {
-      return (
-        <view
-          style={{ display: "flex", flexDirection: "row", paddingBottom: 12 }}
-        >
-          <Button
-            variant="outline-primary"
-            style={{ width: 120, marginRight: 10 }}
-            onClick={selectType}
-          >
-            Online video call
-          </Button>
-          {"  "}
-          <Button
-            variant="outline-primary"
-            style={{ width: 120 }}
-            onClick={selectType}
-          >
-            Visit your doctor
-          </Button>
         </view>
       );
     }
