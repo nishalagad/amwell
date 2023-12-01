@@ -13,7 +13,7 @@ import Button from "react-bootstrap/Button";
       </div> */
 }
 
-function DoctorCard() {
+function DoctorCard(props) {
   return (
     <Row xs={1} md={2} className="g-4">
       {[Array.from({ length: 4 })].map((_, idx) => (
@@ -32,7 +32,11 @@ function DoctorCard() {
                 7 years of experience
               </Card.Text>
             </Card.Body>
-            <Button variant="primary" style={{ fontSize: 12 }}>
+            <Button
+              variant="primary"
+              style={{ fontSize: 12 }}
+              onClick={props.selectDoctor}
+            >
               Book Appointment
             </Button>
           </Card>
