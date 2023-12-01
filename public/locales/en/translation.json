@@ -1,3 +1,10 @@
 {
-  "KEY_LOGIN": "Login successful"
+  "KEY_LOGIN_SUCCESSFULL": "Login successful",
+  "KEY_MOBILE_NUMBER": "Invalid mobile number",
+  "KEY_SEND_OTP": "Send OTP",
+  "KEY_BOOK": "Book an appointment",
+  "KEY_FIND_DOC": "Find a doctor near you",
+  "KEY_BOOK_ONLINE": "Book online consultation",
+  "KEY_LOGIN": "Login",
+  "OTP_SENT_TO": "OTP sent"
 }
