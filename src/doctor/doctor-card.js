@@ -26,11 +26,9 @@ function DoctorCard(props) {
             />
             <Card.Body style={{ paddingLeft: 0, paddingRight: 0 }}>
               <Card.Title style={{ fontSize: 14, fontWeight: "bold" }}>
-                Dr. John Deo
+                {props.name}
               </Card.Title>
-              <Card.Text style={{ fontSize: 12 }}>
-                7 years of experience
-              </Card.Text>
+              <Card.Text style={{ fontSize: 12 }}>{props.experience}</Card.Text>
             </Card.Body>
             <Button
               variant="primary"

@@ -4,7 +4,7 @@ export const sendMessage = async (props) => {
   try {
     // Replace with your Twilio credentials and WhatsApp API endpoint
     const twilioAccountSid = "ACc8569c8fa44e6076a712ea8533990a03";
-    const twilioAuthToken = "8324d3be097de05a87fb4dcaf2e29e09";
+    const twilioAuthToken = "7869db1231b08a8ab00092df47717ec8";
     const twilioPhoneNumber = "+14155238886";
     const phoneNumber = "+919307345712";
 
