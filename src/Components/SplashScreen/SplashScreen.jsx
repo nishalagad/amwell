@@ -4,7 +4,7 @@ import "./SplashScreen.css";
 const SplashScreen = (props) => {
   return (
     <>
-      <div className="div">
+      <div className="div" style={{ paddingTop: 20 }}>
         <div className="div-2">
           <div className="div-3">9:41</div>
           <div className="div-4">

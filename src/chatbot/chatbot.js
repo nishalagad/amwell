@@ -4,15 +4,11 @@ import Header from "../Headers/header";
 import DoctorCard from "../doctor/doctor-card";
 import Button from "react-bootstrap/Button";
 import APICall from "./APICall";
+import { sendMessage } from "../whatsapp/WhatsAppSender";
 
 const API_KEY = "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"; // Replace 'YOUR_API_KEY' with your actual API key
 
 const DATA_MESSAGE = [
-  {
-    type: "user",
-    text: "Hi There",
-    isSelectType: true,
-  },
   {
     type: "user",
     text: "Hi There",
@@ -50,6 +46,7 @@ const DATA_MESSAGE = [
 ];
 const Chatbot = () => {
   const chatListRef = useRef(null);
+  const [info, setInfo] = useState();
   const [messages, setMessages] = useState([
     {
       type: "user",
@@ -97,14 +94,14 @@ const Chatbot = () => {
   const handleSend = async () => {
     const conversation = [...messages]; // Copying the existing conversation
 
-    if (textInput === "I am not feeling well") {
+    if (textInput.toLowerCase().substring("not feeling")) {
       const updatedMessages = [
         ...conversation,
         { type: "bot", text: "I am not feeling well" },
         { type: "user", text: "Do you want to connect to doctor" },
       ];
       setMessages(updatedMessages);
-    } else if (textInput === "Yes Please") {
+    } else if (textInput.toLowerCase().substring("yes")) {
       const updatedMessages = [
         ...conversation,
         { type: "bot", text: "Yes Please" },
@@ -146,7 +143,11 @@ const Chatbot = () => {
     scrollToBottom();
   };
 
-  const selectDoctor = () => {
+  const selectDoctor = (docter) => {
+    this.setInfo({
+      ...info,
+      doctorName: docter,
+    });
     const conversation = [...messages];
     const updatedMessages = [
       ...conversation,
@@ -172,8 +173,9 @@ const Chatbot = () => {
         text: "Appointment Booked",
       },
     ];
-    APICall();
     setMessages(updatedMessages);
+    APICall();
+    sendMessage({ message: "Your appointment has been booked" });
   };
 
   const selectType = () => {
@@ -220,19 +222,19 @@ const Chatbot = () => {
         <view
           style={{ display: "flex", flexDirection: "row", paddingBottom: 12 }}
         >
-          <div onClick={selectDoctor}>
+          <div onClick={() => selectDoctor("Jyoti Mali")}>
             <DoctorCard
               imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
-              name="John Doe" // Replace with the actual name
+              name="Jyoti Mali" // Replace with the actual name
               experience="5 years of experience" // Replace with the actual experience
             />
           </div>
 
-          <div onClick={selectDoctor}>
+          <div onClick={() => selectDoctor("Akash Patil")}>
             <DoctorCard
               imageUrl="https://placekitten.com/300/200" // Replace with the actual image URL
-              name="John Doe" // Replace with the actual name
-              experience="5 years of experience" // Replace with the actual experience
+              name="Akash Patil" // Replace with the actual name
+              experience="6 years of experience" // Replace with the actual experience
             />
           </div>
         </view>
