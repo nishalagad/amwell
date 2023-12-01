@@ -22,7 +22,19 @@ const LanguageChange = () => {
     <div className="d-flex flex-column">
       {showDropdown && (
         <>
-          <select value={lang} onChange={changeLanguage}>
+          <select
+            style={{
+              width: "100%",
+              height: "35px",
+              background: "#f6f6f6",
+              color: "#444",
+              border: "none",
+              borderRadius: "5px",
+              boxShadow: "0 3px 5px 1px rgba(0, 0, 0, 0.1)",
+            }}
+            value={lang}
+            onChange={changeLanguage}
+          >
             <option value="en">English</option>
             <option value="hi">Hindi</option>
           </select>
