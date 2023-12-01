@@ -1,10 +1,8 @@
-import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import LanguageChange from "./Components/ChangeLanguage/ChangeLanguage";
-import { React, Link } from "react";
-import logo from "./logo.svg";
+import { React } from "react";
 import "./App.css";
 
 const App = () => {
