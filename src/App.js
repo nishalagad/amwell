@@ -18,6 +18,7 @@ const App = () => {
           <Route path="/" element={<LanguageChange />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
       </Router>
     </>
