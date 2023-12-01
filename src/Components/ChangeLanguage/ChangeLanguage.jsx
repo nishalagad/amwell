@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
+import "./changeLanguage.css";
 const LanguageChange = () => {
   const { i18n } = useTranslation();
   const [lang, setLang] = useState(i18n.language);
@@ -21,7 +21,7 @@ const LanguageChange = () => {
   return (
     <div className="d-flex flex-column">
       {showDropdown && (
-        <>
+        <div className="changeLanguageContainer">
           <select
             style={{
               width: "100%",
@@ -40,7 +40,7 @@ const LanguageChange = () => {
           </select>
 
           <Button
-            className="m-2"
+            className="m-2 w-50"
             variant="primary"
             onClick={() => {
               navigate("/login");
@@ -49,7 +49,7 @@ const LanguageChange = () => {
           >
             OK
           </Button>
-        </>
+        </div>
       )}
     </div>
   );

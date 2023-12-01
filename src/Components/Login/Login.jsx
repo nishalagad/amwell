@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, FormControl } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
+import LoginPageImage from "../../assets/loginPageImage.png";
 
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -40,16 +41,12 @@ const Login = () => {
   return (
     <div className="loginContainer">
       <div className="div-5">
+        <img loading="lazy" src={LoginPageImage} className="loginPageImage" />
         <div className="div-6">Consult with top doctors nearby.</div>
-        <div className="div-7">
-          <div className="div-8" />
-          <div className="div-9" />
-          <div className="div-10" />
-          <div className="div-11" />
-          <div className="div-12" />
-        </div>
       </div>
-      <div className="div-13">Let’s get started! Enter your mobile number.</div>
+      <div className="loginPageTextStrip">
+        Let’s get started! Enter your mobile number.
+      </div>
       {!showOtp && (
         <div className="div-14">
           <div className="div-15">
@@ -60,11 +57,7 @@ const Login = () => {
               onChange={(e) => setPhoneNumber(e.target.value)}
               placeholder="Phone Number"
             />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f5c8bf75a6b526b17b0baf98b2add54b8f867bb833a4003635af75b618be83ce?"
-              className="img-4"
-            />
+
             <Button className="login-buttons" onClick={handleSendOTP}>
               Send OTP
             </Button>
@@ -80,11 +73,6 @@ const Login = () => {
               value={otp}
               onChange={(e) => setOTP(e.target.value)}
               placeholder="Enter OTP"
-            />
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f5c8bf75a6b526b17b0baf98b2add54b8f867bb833a4003635af75b618be83ce?"
-              className="img-4"
             />
             <Button className="login-buttons" onClick={handleLogin}>
               Login

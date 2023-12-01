@@ -4,8 +4,10 @@ import VideoConsultation from "../../assets/instantVideoConsultation.png";
 import logo from "../../assets/Logo.png";
 import robo from "../../assets/robo.png";
 import secureYourFamily from "../../assets/secureYourFam.png";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   return (
     <div className="div">
       <div className="div-5">
@@ -22,7 +24,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="div-10">
-        <div className="div-book-app1">
+        <div className="div-book-app1" onClick={() => navigate("/chatbot")}>
           <div className="div-book-app2">
             <div className="div-book-app3">
               <div className="div-book-app4">
@@ -86,27 +88,25 @@ const Dashboard = () => {
                 style={{ fontFamily: "poppins,sans-serif", fontWeight: "400" }}
               >
                 For every successful referral, earn 50 points and get closure to
-                achieve{" "}
+                achieve
               </span>
               <span
                 style={{ fontFamily: "poppins,sans-serif", fontWeight: "500" }}
               >
                 Milestone 1
               </span>
-            </div>{" "}
+            </div>
             <div className="div-features32">Emergency</div>
-          </div>{" "}
-          <div className="div-features33">Refer a Friend</div>{" "}
+          </div>
+          <div className="div-features33">Refer a Friend</div>
           <div className="div-features34">
-            <div className="div-features35">
-              <img loading="lazy" src={robo} className="book-img" />
-            </div>{" "}
             <button type="button" class="btn btn-danger sticky-lg-bottom">
               Emergency
             </button>
           </div>
-        </div>{" "}
+        </div>
       </div>
+      <img loading="lazy" src={robo} className="chatbot" />
     </div>
   );
 };

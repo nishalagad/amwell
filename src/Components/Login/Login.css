@@ -2,12 +2,9 @@
   background-color: #fff;
   display: flex;
   padding-bottom: 50px;
-}
-body {
-  padding: 20px;
-  align-items: center;
   flex-direction: column;
 }
+
 .loginContainerChild {
   justify-content: space-between;
   background-color: var(--Primary-Blue-1, #1c1f8d);
@@ -76,6 +73,7 @@ body {
   width: 100%;
   flex-direction: column;
   padding: 45px 55px 45px 20px;
+  height: 400px;
 }
 @media (max-width: 991px) {
   .div-5 {
@@ -95,58 +93,7 @@ body {
     white-space: initial;
   }
 }
-.div-7 {
-  align-self: start;
-  display: flex;
-  margin-top: 41px;
-  gap: 6px;
-}
-@media (max-width: 991px) {
-  .div-7 {
-    justify-content: center;
-    margin-top: 40px;
-  }
-}
-.div-8 {
-  border-radius: 6px;
-  background-color: var(--Secondary-1, #fff9c4);
-  display: flex;
-  width: 24px;
-  height: 6px;
-  flex-direction: column;
-}
-.div-9 {
-  border-radius: 6px;
-  background-color: rgba(171, 171, 171, 0.37);
-  display: flex;
-  width: 6px;
-  height: 6px;
-  flex-direction: column;
-}
-.div-10 {
-  border-radius: 6px;
-  background-color: rgba(171, 171, 171, 0.37);
-  display: flex;
-  width: 6px;
-  height: 6px;
-  flex-direction: column;
-}
-.div-11 {
-  border-radius: 6px;
-  background-color: rgba(171, 171, 171, 0.37);
-  display: flex;
-  width: 6px;
-  height: 6px;
-  flex-direction: column;
-}
-.div-12 {
-  border-radius: 6px;
-  background-color: rgba(171, 171, 171, 0.37);
-  display: flex;
-  width: 6px;
-  height: 6px;
-  flex-direction: column;
-}
+
 .div-13 {
   color: var(--202020, #202020);
   align-self: center;
@@ -209,4 +156,30 @@ body {
   width: 226px;
   height: 40px;
   flex-direction: column;
+}
+
+.loginPageImage {
+  aspect-ratio: 1.16;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  overflow: hidden;
+  align-self: stretch;
+}
+
+.loginPageTextStrip {
+  color: var(--White, #fff);
+  letter-spacing: -0.18px;
+  white-space: nowrap;
+  background-color: #080a5a;
+  align-self: stretch;
+  justify-content: center;
+  padding: 24px 39px 24px 20px;
+  font: 400 18px/24px Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+}
+@media (max-width: 991px) {
+  .loginPageTextStrip {
+    white-space: initial;
+    padding-right: 20px;
+  }
 }
