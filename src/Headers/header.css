@@ -1,0 +1,15 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 50px;
+  }
+  
+  .languageSelector {
+    margin-right: 10px;
+  }
+  
