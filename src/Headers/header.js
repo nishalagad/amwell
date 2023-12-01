@@ -1,13 +1,10 @@
 import React from "react";
 import "./header.css";
 import logo from "./../assets/Logo.png";
-export default function Header() {
-  const languageOptions = ["English", "Spanish", "French"]; // this should be your list of languages
+import { useNavigate } from "react-router-dom";
 
-  const handleLanguageChange = (e) => {
-    console.log(e.target.value);
-    // handle language change here
-  };
+export default function Header() {
+  const navigate = useNavigate();
 
   return (
     <header
@@ -21,7 +18,12 @@ export default function Header() {
         width: "100%",
       }}
     >
-      <img src={logo} alt="logo" style={{ width: "150px" }} />
+      <img
+        src={logo}
+        alt="logo"
+        style={{ width: "150px" }}
+        onClick={() => navigate("/dashboard")}
+      />
       {/* replace with your logo */}
       {/*  <select onChange={handleLanguageChange} style={{ marginRight: "10px" }}>
         {languageOptions.map((language, index) => (

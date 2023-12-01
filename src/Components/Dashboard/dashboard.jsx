@@ -5,6 +5,7 @@ import logo from "../../assets/Logo.png";
 import robo from "../../assets/robo.png";
 import secureYourFamily from "../../assets/secureYourFam.png";
 import { useNavigate } from "react-router-dom";
+import bookDocAppointment from "../../assets/BookDocAppointment.png";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -34,7 +35,11 @@ const Dashboard = () => {
                 Our AI Bot, Medly is ready to help you
               </div>
             </div>
-            <img loading="lazy" srcSet={robo} className="book-img" />
+            <img
+              loading="lazy"
+              srcSet={bookDocAppointment}
+              className="book-img"
+            />
           </div>
           <div className="div-book-app6">Book your Appointment</div>
         </div>
@@ -103,10 +108,15 @@ const Dashboard = () => {
             <button type="button" class="btn btn-danger sticky-lg-bottom">
               Emergency
             </button>
+            <img
+              loading="lazy"
+              src={robo}
+              className="chatbot"
+              onClick={() => navigate("/chatbot")}
+            />
           </div>
         </div>
       </div>
-      <img loading="lazy" src={robo} className="chatbot" />
     </div>
   );
 };

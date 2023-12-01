@@ -20,22 +20,22 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    if (dummyData[phoneNumber] === otp) {
-      setError("");
-      toast.success("You have successfully logged in.");
-      navigate("/dashboard");
-    } else {
-      setError("Invalid OTP");
-    }
+    // if (dummyData[phoneNumber] === otp) {
+    setError("");
+    toast.success("You have successfully logged in.");
+    navigate("/dashboard");
+    // } else {
+    //   setError("Invalid OTP");
+    // }
   };
 
   const handleSendOTP = () => {
-    if (dummyData[phoneNumber]) {
-      toast.success("otp sent successfully!");
-      setShowOtp(true);
-    } else {
-      alert("Invalid mobile number");
-    }
+    // if (dummyData[phoneNumber]) {
+    toast.success("otp sent successfully!");
+    setShowOtp(true);
+    // } else {
+    //   alert("Invalid mobile number");
+    // }
   };
 
   return (
@@ -48,20 +48,18 @@ const Login = () => {
         Let’s get started! Enter your mobile number.
       </div>
       {!showOtp && (
-        <div className="div-14">
-          <div className="div-15">
-            <FormControl
-              type="text"
-              className="text-input"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              placeholder="Phone Number"
-            />
+        <div className="div-15">
+          <FormControl
+            type="text"
+            className="text-input"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            placeholder="Phone Number"
+          />
 
-            <Button className="login-buttons" onClick={handleSendOTP}>
-              Send OTP
-            </Button>
-          </div>
+          <Button className="login-buttons" onClick={handleSendOTP}>
+            Send OTP
+          </Button>
         </div>
       )}
       <div className="div-14">

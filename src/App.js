@@ -11,8 +11,8 @@ import Header from "./Headers/header";
 const App = () => {
   return (
     <>
-      <Header />
       <Router>
+        <Header />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<LanguageChange />} />
