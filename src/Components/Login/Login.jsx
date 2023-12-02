@@ -12,7 +12,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showOtp, setShowOtp] = useState(false);
   const navigate = useNavigate();
-  const { t } = useTranslation;
+  const { t } = useTranslation();
 
   // Dummy data
   const dummyData = {
@@ -23,7 +23,7 @@ const Login = () => {
   const handleLogin = () => {
     // if (dummyData[phoneNumber] === otp) {
     setError("");
-    toast.success("You have successfully logged in.");
+    toast.success(t("KEY_LOGIN_SUCCESSFULL"));
     navigate("/dashboard");
     // } else {
     //   setError("Invalid OTP");
@@ -32,7 +32,7 @@ const Login = () => {
 
   const handleSendOTP = () => {
     // if (dummyData[phoneNumber]) {
-    toast.success("otp sent successfully!");
+    toast.success(t("OTP_SENT_TO"));
     setShowOtp(true);
     // } else {
     //   alert("Invalid mobile number");
@@ -43,11 +43,9 @@ const Login = () => {
     <div className="loginContainer">
       <div className="div-5">
         <img loading="lazy" src={LoginPageImage} className="loginPageImage" />
-        <div className="div-6">Consult with top doctors nearby.</div>
+        <div className="div-6">{t("CONSULT_DOCTORS_NEARBY")}</div>
       </div>
-      <div className="loginPageTextStrip">
-        Let’s get started! Enter your mobile number.
-      </div>
+      <div className="loginPageTextStrip">{t("LETS_GET_STARTED")}</div>
       {!showOtp && (
         <div className="div-15">
           <FormControl
@@ -55,11 +53,11 @@ const Login = () => {
             className="text-input"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            placeholder="Phone Number"
+            placeholder={t("PHONE_NUMBER")}
           />
 
           <Button className="login-buttons" onClick={handleSendOTP}>
-            Send OTP
+            {t("KEY_SEND_OTP")}
           </Button>
         </div>
       )}
@@ -80,41 +78,6 @@ const Login = () => {
         )}
       </div>
     </div>
-    // <Container className="login-container">
-    //   <div className="login-section">
-    //     {!showOtp && (
-    //       <>
-    //         <FormControl
-    //           type="text"
-    //           className="text-input"
-    //           value={phoneNumber}
-    //           onChange={(e) => setPhoneNumber(e.target.value)}
-    //           placeholder="Phone Number"
-    //         />
-    //         <Button className="login-buttons" onClick={handleSendOTP}>
-    //           Send OTP
-    //         </Button>
-    //       </>
-    //     )}
-
-    //     {showOtp && (
-    //       <>
-    //         <FormControl
-    //           type="text"
-    //           className="text-input"
-    //           value={otp}
-    //           onChange={(e) => setOTP(e.target.value)}
-    //           placeholder="Enter OTP"
-    //         />
-    //         <Button className="login-buttons" onClick={handleLogin}>
-    //           Login
-    //         </Button>
-    //       </>
-    //     )}
-
-    //     {error && <p>{error}</p>}
-    //   </div>
-    // </Container>
   );
 };
 

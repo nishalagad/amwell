@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "./changeLanguage.css";
+
 const LanguageChange = () => {
   const { i18n } = useTranslation();
   const [lang, setLang] = useState(i18n.language);
