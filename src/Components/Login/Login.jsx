@@ -5,6 +5,7 @@ import { Button, FormControl } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import LoginPageImage from "../../assets/loginPageImage.png";
+import { sendMessage } from "../../whatsapp/WhatsAppSender";
 
 const Login = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -31,6 +32,10 @@ const Login = () => {
   };
 
   const handleSendOTP = () => {
+    sendMessage({
+      message: `Welcome to MEDISYNC, your OTP is 1235`,
+      mobileNumber: "+919307345712",
+    });
     // if (dummyData[phoneNumber]) {
     toast.success("otp sent successfully!");
     setShowOtp(true);
