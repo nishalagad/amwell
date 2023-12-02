@@ -18,6 +18,7 @@ export default function APICall(props) {
     appointment_time: props.time, //"2PM to 3PM",
     doctor_name: props.doctorName,
     doctor_id: "6789",
+    concern: props.concern,
   };
   // Make the POST request
   fetch(apiUrl, {
