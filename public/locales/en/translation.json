@@ -6,5 +6,6 @@
   "KEY_FIND_DOC": "Find a doctor near you",
   "KEY_BOOK_ONLINE": "Book online consultation",
   "KEY_LOGIN": "Login",
-  "OTP_SENT_TO": "OTP sent"
+  "OTP_SENT_TO": "OTP sent",
+  "LETS_GET_STARTED": "Let’s get started! Enter your mobile number."
 }

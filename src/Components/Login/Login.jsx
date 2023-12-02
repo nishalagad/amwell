@@ -13,6 +13,7 @@ const Login = () => {
   const [showOtp, setShowOtp] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation;
+
   // Dummy data
   const dummyData = {
     1234567890: "1111",

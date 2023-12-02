@@ -178,7 +178,10 @@ const Chatbot = () => {
       doctorName,
       time,
     });
-    sendMessage({ message: "Your appointment has been booked" });
+    sendMessage({
+      message: "Your appointment has been booked",
+      mobileNumber: "+919307345712",
+    });
   };
 
   const selectType = () => {

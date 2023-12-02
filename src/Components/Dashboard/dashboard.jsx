@@ -6,9 +6,15 @@ import robo from "../../assets/robo.png";
 import secureYourFamily from "../../assets/secureYourFam.png";
 import { useNavigate } from "react-router-dom";
 import bookDocAppointment from "../../assets/BookDocAppointment.png";
+import { getCurrentLocation } from "../../chatbot/APICall";
 
 const Dashboard = () => {
   const navigate = useNavigate();
+
+  const handleEmergencyClick = () => {
+    getCurrentLocation();
+  };
+
   return (
     <div className="div">
       <div className="div-5">
@@ -105,7 +111,11 @@ const Dashboard = () => {
           </div>
           <div className="div-features33">Refer a Friend</div>
           <div className="div-features34">
-            <button type="button" class="btn btn-danger sticky-lg-bottom">
+            <button
+              type="button"
+              class="btn btn-danger sticky-lg-bottom"
+              onClick={() => handleEmergencyClick()}
+            >
               Emergency
             </button>
             <img

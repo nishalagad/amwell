@@ -1,3 +1,5 @@
+import { sendMessage } from "../whatsapp/WhatsAppSender";
+
 export default function APICall(props) {
   console.log("props", props);
   const apiUrl =
@@ -39,17 +41,21 @@ export default function APICall(props) {
     });
 }
 
-function getCurrentLocation() {
+export const getCurrentLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(success, error);
   } else {
     console.log("Geolocation not supported");
   }
-}
+};
 
 function success(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
+  sendMessage({
+    message: `The person using +919871745437 is in trouble.\nCurrently he is near ${latitude} ${longitude}.\nPlease contact him urgently`,
+    mobileNumber: "+919871745437",
+  });
   console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 }
 
