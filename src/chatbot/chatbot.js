@@ -48,6 +48,7 @@ const Chatbot = () => {
   const chatListRef = useRef(null);
   const [doctorName, setDoctorName] = useState();
   const [time, setTime] = useState();
+  const [concern, setConcern] = useState();
   const [messages, setMessages] = useState([
     {
       type: "user",
@@ -95,10 +96,11 @@ const Chatbot = () => {
   const handleSend = async () => {
     const conversation = [...messages]; // Copying the existing conversation
 
-    if (textInput.toLowerCase().includes("not feeling")) {
+    if (textInput.toLowerCase().includes("fever")) {
+      setConcern(textInput);
       const updatedMessages = [
         ...conversation,
-        { type: "bot", text: "I am not feeling well" },
+        { type: "bot", text: textInput },
         {
           type: "user",
           text: "I'm sorry to hear that. Please choose your preferred option.",
@@ -181,6 +183,7 @@ const Chatbot = () => {
     APICall({
       doctorName,
       time,
+      concern,
     });
     sendMessage({
       message: `Your appointment has been successfully confirmed. Please visit the doctor at ${time}.`,
